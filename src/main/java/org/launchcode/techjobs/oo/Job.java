@@ -2,6 +2,8 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+import static java.lang.System.*;
+
 public class Job {
 
     private int id;
@@ -93,5 +95,21 @@ public class Job {
 
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
+    }
+
+    public String toString() {
+
+        //hmmmm not sure how to deal with a blank field. ideas: very convoluted arraylist of hashmap?
+        //I really don't want to print out a new output to check if every field has a blank value
+
+
+//if (getEmployer().getValue().isEmpty()){
+//    return "Data not available"
+//}
+        return System.lineSeparator()+"ID: "+ getId()+ System.lineSeparator()+ "Name: "+ getName()+ System.lineSeparator()
+                + "Employer: "+ getEmployer()+ System.lineSeparator()
+                + "Location: "+ getLocation()+ System.lineSeparator()
+                + "Position Type: "+ getPositionType()+ System.lineSeparator()
+                + "Core Competency: "+ getCoreCompetency()+ System.lineSeparator();
     }
 }

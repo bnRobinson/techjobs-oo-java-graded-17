@@ -39,4 +39,30 @@ public class JobTest {
         assertNotEquals(testJobOne, testJobTwo);
 
     }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+// tests that the toString method starts and ends with a new line
+        // use the System.lineSeparator() method
+        Job productTester= new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertEquals(System.lineSeparator(),productTester.toString());
+
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData(){
+        Job productTester= new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+assertTrue(productTester.toString().contains("Name: Product tester"));
+assertTrue(productTester.toString().contains("Employer: ACME"));
+assertTrue(productTester.toString().contains("Location: Desert"));
+assertTrue(productTester.toString().contains("Position Type: Quality control"));
+assertTrue(productTester.toString().contains("Core Competency: Persistence"));
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField(){
+    // if the field is empty, method should add "Data not available" after label
+        Job productTesterTwo= new Job("Product tester",new Employer(), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        assertTrue(productTesterTwo.toString().contains("Employer: Data not Available"));
+    }
 }
